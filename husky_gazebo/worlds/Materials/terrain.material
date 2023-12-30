@@ -1,0 +1,16 @@
+material terrain/mars_terrain
+{
+  receive_shadows on
+
+  technique
+  {
+    pass
+    {
+
+      texture_unit
+      {
+        texture Mars_surface.jpg
+      }
+    }
+  }
+}
