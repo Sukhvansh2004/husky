@@ -29,6 +29,8 @@
   <exec_depend>pointcloud_to_laserscan</exec_depend>
   <exec_depend>rostopic</exec_depend>
   <exec_depend>velodyne_gazebo_plugins</exec_depend>
+  <exec_depend>gbplanner</exec_depend>
+  <exec_depend>pci_general</exec_depend>
   
   <test_depend>roslaunch</test_depend>
 

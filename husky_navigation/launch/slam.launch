@@ -1,0 +1,9 @@
+<launch>
+
+  <node pkg="slam_toolbox" type="async_slam_toolbox_node" name="slam_toolbox" output="screen">
+    <rosparam command="load" file="/home/sukhvansh/Husky/src/husky_navigation/config/mapper_params_online_async.yaml" />
+  </node>
+
+    <node pkg="tf" type="static_transform_publisher" name="map_to_world" args = "0 0 0 0 0 0 1 map world 5" />
+
+</launch>
