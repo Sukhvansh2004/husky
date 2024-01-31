@@ -1,0 +1,20 @@
+sim_camera_1:
+  alias: Front
+  flip: false
+  theora_webcam: false
+  widget_no: 7
+sim_camera_2:
+  alias: Left
+  flip: false
+  theora_webcam: false
+  widget_no: 9
+sim_camera_3:
+  alias: Right
+  flip: false
+  theora_webcam: false
+  widget_no: 10
+sim_camera_4:
+  alias: Back
+  flip: false
+  theora_webcam: false
+  widget_no: 8

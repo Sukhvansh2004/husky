@@ -1,0 +1,45 @@
+<launch>
+	<!-- marker manager and gui args -->
+	<arg name="marker_list_topic" default="/marker_list"/>
+	<arg name="add_marker_service" default="/add_marker"/>
+	<arg name="clear_markers_service" default="/clear_markers"/>
+	<arg name="reorder_marker_service" default="/reorder_marker"/>
+	<arg name="reorder_markers_service" default="/reorder_markers"/>
+	<arg name="edit_marker_service" default="/edit_marker"/>
+	<arg name="remove_marker_service" default="/remove_marker"/>
+	<arg name="insert_marker_service" default="/insert_marker"/>
+
+	<!-- launch the marker manager -->
+	<include file="$(find marker_manager)/launch/marker_manager.launch">
+		<arg name="marker_list_topic" value="$(arg marker_list_topic)"/>
+		<arg name="add_marker_service" value="$(arg add_marker_service)"/>
+		<arg name="clear_markers_service" value="$(arg clear_markers_service)"/>
+		<arg name="reorder_marker_service" value="$(arg reorder_marker_service)"/>
+		<arg name="reorder_markers_service" value="$(arg reorder_markers_service)"/>
+		<arg name="edit_marker_service" value="$(arg edit_marker_service)"/>
+		<arg name="remove_marker_service" value="$(arg remove_marker_service)"/>
+		<arg name="insert_marker_service" value="$(arg insert_marker_service)"/>
+	</include>
+
+	<!-- launch the gui -->
+	<include file="$(find wanderer_gui)/launch/base.launch">
+		<arg name="marker_list_topic" value="$(arg marker_list_topic)"/>
+		<arg name="add_marker_service" value="$(arg add_marker_service)"/>
+		<arg name="clear_markers_service" value="$(arg clear_markers_service)"/>
+		<arg name="reorder_marker_service" value="$(arg reorder_marker_service)"/>
+		<arg name="reorder_markers_service" value="$(arg reorder_markers_service)"/>
+		<arg name="edit_marker_service" value="$(arg edit_marker_service)"/>
+		<arg name="remove_marker_service" value="$(arg remove_marker_service)"/>
+		<arg name="insert_marker_service" value="$(arg insert_marker_service)"/>
+		<arg name="drive_forward_service" value="/drive_forward"/>
+		<arg name="car_style_turning_service" value="/car_style_turning"/>
+	</include>
+
+	<!-- launch the webcam -->
+	<include file="$(find wanderer_missions)/launch/testing/webcam.launch">
+		<arg name="width" value="1280"/>
+		<arg name="height" value="720"/>
+		<arg name="framerate" value="10"/>
+		<arg name="device" value="/dev/video0"/>
+	</include>
+</launch>

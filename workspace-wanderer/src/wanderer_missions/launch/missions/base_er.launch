@@ -1,0 +1,3 @@
+<launch>
+	<include file="$(find wanderer_missions)/launch/missions/base_ed.launch"/>
+</launch>

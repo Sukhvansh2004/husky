@@ -131,6 +131,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/sukhvansh/Husky/src/build/gtest/cmake_install.cmake")
+  include("/home/sukhvansh/Husky/src/build/aruco_sim/cmake_install.cmake")
   include("/home/sukhvansh/Husky/src/build/husky_desktop/cmake_install.cmake")
   include("/home/sukhvansh/Husky/src/build/husky_simulator/cmake_install.cmake")
   include("/home/sukhvansh/Husky/src/build/husky_msgs/cmake_install.cmake")
@@ -139,6 +140,10 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/sukhvansh/Husky/src/build/husky_gazebo/cmake_install.cmake")
   include("/home/sukhvansh/Husky/src/build/husky_navigation/cmake_install.cmake")
   include("/home/sukhvansh/Husky/src/build/husky_viz/cmake_install.cmake")
+  include("/home/sukhvansh/Husky/src/build/sumo_search/cmake_install.cmake")
+  include("/home/sukhvansh/Husky/src/build/aruco_finder/cmake_install.cmake")
+  include("/home/sukhvansh/Husky/src/build/marker-detection/cmake_install.cmake")
+  include("/home/sukhvansh/Husky/src/build/workspace-wanderer/src/wanderer_missions/cmake_install.cmake")
 
 endif()
 

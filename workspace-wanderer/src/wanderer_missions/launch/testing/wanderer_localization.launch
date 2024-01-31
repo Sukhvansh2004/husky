@@ -1,0 +1,7 @@
+<launch>
+	<include file="$(find pixhawk_localization)/launch/pixhawk.launch">
+		<arg name="device_path" value="/dev/urc/mtc/pixhawk"/>
+		<arg name="local_position_topic" value="/current_pose"/>
+		<arg name="global_position_topic" value="/current_global_pose"/>
+	</include>
+</launch>

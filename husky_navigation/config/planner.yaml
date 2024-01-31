@@ -51,26 +51,26 @@ TrajectoryPlannerROS:
   escape_reset_dist: 0.1
   escape_reset_theta: 0.1
 
-DWAPlannerROS:
-  # Robot configuration parameters  
-  acc_lim_x: 2.5
-  acc_lim_y: 0
-  acc_lim_th: 3.2
+# DWAPlannerROS:
+#   # Robot configuration parameters  
+#   acc_lim_x: 2.5
+#   acc_lim_y: 0
+#   acc_lim_th: 3.2
 
-  max_vel_x: 1.0
-  min_vel_x: -0.2
-  max_vel_y: 0
-  min_vel_y: 0
+#   max_vel_x: 1.0
+#   min_vel_x: -0.1
+#   max_vel_y: 0
+#   min_vel_y: 0
 
-  max_vel_trans: 1.0
-  min_vel_trans: 0.2
-  max_vel_rot: 1.0
-  min_vel_rot: 0.2
+#   max_vel_trans: 1.0
+#   min_vel_trans: 0.2
+#   max_vel_rot: 1.0
+#   min_vel_rot: 0.2
 
-  # Goal Tolerance Parameters
-  yaw_goal_tolerance: 0.1
-  xy_goal_tolerance: 0.2
-  latch_xy_goal_tolerance: false
+#   # Goal Tolerance Parameters
+#   yaw_goal_tolerance: 0.1
+#   xy_goal_tolerance: 0.2
+#   latch_xy_goal_tolerance: false
 
   # # Forward Simulation Parameters
   # sim_time: 2.0
@@ -91,3 +91,30 @@ DWAPlannerROS:
 
   # # Oscillation Prevention Parameters
   # oscillation_reset_dist: 0.25 #How far the robot must travel in meters before oscillation flags are reset (double, default: 0.05)
+
+DWAPlannerROS: # Pluto Robot Parameters
+  meter_scoring: true
+  acc_lim_x: 2.0
+  acc_lim_y: 0.0
+  acc_lim_theta: 1.0
+  max_vel_trans: 1.0
+  min_vel_trans: 0.10
+  max_vel_x: 5.0
+  min_vel_x: -0.1
+  max_vel_y: 0.0
+  min_vel_y: -0.0
+  max_vel_theta: 0.86
+  min_vel_theta: 0.2
+
+  yaw_goal_tolerance: 0.2
+  xy_goal_tolerance: 0.15
+  sim_time: 1.7
+  vx_samples: 10
+  vy_samples: 10
+  vtheta_samples: 30
+  path_distance_bias: 16.0
+  goal_distance_bias: 24.0
+  occdist_scale: 1.0
+  stop_time_buffer: 0.2
+  oscillation_reset_dist: 0.05
+  oscillation_reset_angle: 0.2

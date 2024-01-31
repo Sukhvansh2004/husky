@@ -1,0 +1,7 @@
+<launch>
+	<!-- launch the spectrometer -->
+	<include file="$(find ocean_optics_spectrometer)/launch/spectrometer.launch">
+		<arg name="spectrometer_service" default="/spectrometer"/>
+		<arg name="device_sn" default="S14413"/>
+	</include>
+</launch>

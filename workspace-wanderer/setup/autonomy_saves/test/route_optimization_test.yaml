@@ -1,0 +1,66 @@
+!GeodeticMarkerList
+count: 7
+markers:
+- !GeodeticMarker
+  aruco_id: 1
+  aruco_id_2: 2
+  gps: !GeoPoint
+    altitude: 0.0
+    latitude: 39.6458866
+    longitude: -79.971934
+  marker_type: gate
+  waypoint_error: 3.0
+- !GeodeticMarker
+  aruco_id: 3
+  aruco_id_2: 0
+  gps: !GeoPoint
+    altitude: 0.0
+    latitude: 39.6465454
+    longitude: -79.9707511
+  marker_type: no_marker
+  waypoint_error: 0.0
+- !GeodeticMarker
+  aruco_id: 4
+  aruco_id_2: 0
+  gps: !GeoPoint
+    altitude: 0.0
+    latitude: 39.6464257
+    longitude: -79.9706358
+  marker_type: no_marker
+  waypoint_error: 0.0
+- !GeodeticMarker
+  aruco_id: 5
+  aruco_id_2: 0
+  gps: !GeoPoint
+    altitude: 0.0
+    latitude: 39.6453269
+    longitude: -79.9708906
+  marker_type: no_marker
+  waypoint_error: 0.0
+- !GeodeticMarker
+  aruco_id: 6
+  aruco_id_2: 0
+  gps: !GeoPoint
+    altitude: 0.0
+    latitude: 39.646405
+    longitude: -79.9716952
+  marker_type: one_marker
+  waypoint_error: 5.0
+- !GeodeticMarker
+  aruco_id: 7
+  aruco_id_2: 0
+  gps: !GeoPoint
+    altitude: 0.0
+    latitude: 39.6463121
+    longitude: -79.9722236
+  marker_type: one_marker
+  waypoint_error: 20.0
+- !GeodeticMarker
+  aruco_id: 8
+  aruco_id_2: 0
+  gps: !GeoPoint
+    altitude: 0.0
+    latitude: 39.6458845
+    longitude: -79.9709496
+  marker_type: one_marker
+  waypoint_error: 10.0

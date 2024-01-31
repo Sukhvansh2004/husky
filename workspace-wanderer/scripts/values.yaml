@@ -1,0 +1,39 @@
+hosts:
+  acer:
+    hostname: acer
+    location: base
+    ip: 192.168.1.180
+  thinkpad:
+    hostname: thinkpad
+    location: base
+    ip: 192.168.1.181
+  hp:
+    hostname: hp
+    location: base
+    ip: 192.168.1.99
+  wanderer:
+    hostname: wanderer
+    location: wanderer
+    ip: 192.168.1.69
+
+missions:
+  # actual missions (er is alias for ed)
+  - autonomy
+  - er
+  - ed
+  - es
+  - gui
+  - science
+
+  # remote control
+  - gamepad
+  - keyboard
+  - gui_gamepad
+  - gui_keyboard
+  - drivebase
+  - drivebase_gamepad
+  - test
+
+  # testing
+  - cameras
+  - spectrometer

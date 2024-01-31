@@ -1,0 +1,174 @@
+<launch>
+	<!-- drivebase and path planner args -->
+	<arg name="cmd_vel_topic" default="/cmd_vel"/>
+
+	<!-- marker manager, path planner, and state machine args -->
+	<arg name="current_waypoint_topic" default="/current_waypoint"/>
+
+	<!-- pixhawk and path planner args-->
+	<arg name="local_position_topic" default="/current_pose"/>
+
+	<!-- pixhawk and marker manager args -->
+	<arg name="global_origin_topic" default="/global_origin"/>
+
+	<!-- state machine and path planner args-->
+	<arg name="planner_status_topic" default="/planner_status"/>
+	<arg name="planner_enabled_service" default="/planner_enabled"/>
+	<arg name="planner_precision_service" default="/planner_precision"/>
+	<arg name="gnss_only_precision" default="0.25"/>
+	<arg name="marker_precision" default="1.5"/>
+	<arg name="gate_precision" default=".25"/>
+
+	<!-- state machine and aruco_finder args -->
+	<arg name="found_marker_list_topic" default="/found_marker_list"/>
+
+	<!-- state machine and marker searcher args -->
+	<arg name="publish_search_waypoint_service" default="/publish_search_waypoint"/>
+
+	<!-- state machine and gate planner args -->
+	<arg name="through_next_gate_waypoint_service" default="/through_next_gate_waypoint"/>
+	<arg name="through_update_gate_waypoint_service" default="/through_update_gate_waypoint"/>
+	<arg name="circle_next_gate_waypoint_service" default="/circle_next_gate_waypoint"/>
+	<arg name="circle_update_gate_waypoint_service" default="/circle_update_gate_waypoint"/>
+
+	<!-- marker manager and state machine args -->
+	<arg name="current_marker_topic" default="/current_marker"/>
+	<arg name="marker_list_topic" default="/marker_list"/>
+	<arg name="publish_current_marker_service" default="/publish_current_marker"/>
+	<arg name="plan_home_marker_service" default="/plan_home_marker"/>
+	<arg name="remove_current_marker_service" default="/remove_current_marker"/>
+
+	<!-- Launch the can master -->
+	<include file="$(find can_master)/launch/can_master.launch"/>
+
+	<!-- launch wanderer's drivebase -->
+	<include file="$(find wanderer_drivebase_interfacing)/launch/drivebase.launch">
+		<arg name="cmd_vel_topic" value="$(arg cmd_vel_topic)"/>
+		<arg name="min_linear_speed" value="-2"/>
+		<arg name="max_linear_speed" value="2"/>
+		<arg name="min_angular_speed" value="-2"/>
+		<arg name="max_angular_speed" value="2"/>
+	</include>
+
+	<!-- launch the pixhawk localization -->
+	<include file="$(find pixhawk_localization)/launch/pixhawk.launch">
+		<arg name="device_path" value="/dev/urc/mtc/pixhawk"/>
+		<arg name="config_yaml" value="$(find wanderer_missions)/launch/components/px4_config.yaml"/>
+		<arg name="local_position_topic" value="$(arg local_position_topic)"/>
+		<arg name="global_origin_topic" value="$(arg global_origin_topic)"/>
+	</include>
+
+	<!-- launch the pid path planner -->
+	<include file="$(find pid_path_planner)/launch/planner.launch">
+		<arg name="current_waypoint_topic" value="$(arg current_waypoint_topic)"/>
+		<arg name="local_position_topic" value="$(arg local_position_topic)"/>
+		<arg name="cmd_vel_topic" value="$(arg cmd_vel_topic)"/>
+		<arg name="current_status_topic" value="$(arg planner_status_topic)"/>
+		<arg name="enabled_service" value="$(arg planner_enabled_service)"/>
+		<arg name="precision_service" value="$(arg planner_precision_service)"/>
+		<arg name="min_linear_speed" value="0"/>
+		<arg name="max_linear_speed" value="2"/>
+		<arg name="min_angular_speed" value="-2"/>
+		<arg name="max_angular_speed" value="2"/>
+		<arg name="angle_threshold" value="45"/>
+		<arg name="default_precision" value="$(arg gnss_only_precision)"/>
+		<arg name="update_frequency" value="10"/>
+	</include>
+
+	<!-- launch the marker searcher -->
+	<include file="$(find sumo_search)/launch/sumo_search.launch">
+		<arg name="current_marker_topic" value="$(arg current_marker_topic)"/>
+		<arg name="current_waypoint_topic" value="$(arg current_waypoint_topic)"/>
+		<arg name="publish_search_waypoint_service" value="$(arg publish_search_waypoint_service)"/>
+	</include>
+
+	<!-- launch the through gate planner -->
+	<include file="$(find gate_planner)/launch/through_gate_planner.launch">
+		<arg name="name" value="through_gate_planner"/>
+		<arg name="local_position_topic" value="$(arg local_position_topic)"/>
+		<arg name="current_gate_topic" value="$(arg current_marker_topic)"/>
+		<arg name="found_marker_list_topic" value="$(arg found_marker_list_topic)"/>
+		<arg name="current_waypoint_topic" value="$(arg current_waypoint_topic)"/>
+		<arg name="next_waypoint_service" value="$(arg through_next_gate_waypoint_service)"/>
+		<arg name="update_waypoint_service" value="$(arg through_update_gate_waypoint_service)"/>
+		<arg name="gate_path_length" value="5"/>
+	</include>
+
+	<!-- launch the circle gate planner -->
+	<include file="$(find gate_planner)/launch/circle_gate_planner.launch">
+		<arg name="name" value="circle_gate_planner"/>
+		<arg name="local_position_topic" value="$(arg local_position_topic)"/>
+		<arg name="current_gate_topic" value="$(arg current_marker_topic)"/>
+		<arg name="found_marker_list_topic" value="$(arg found_marker_list_topic)"/>
+		<arg name="current_waypoint_topic" value="$(arg current_waypoint_topic)"/>
+		<arg name="next_waypoint_service" value="$(arg circle_next_gate_waypoint_service)"/>
+		<arg name="update_waypoint_service" value="$(arg circle_update_gate_waypoint_service)"/>
+		<arg name="gate_square_side_length" value="1"/>
+	</include>
+
+	<!-- launch the marker manager -->
+	<include file="$(find marker_manager)/launch/marker_manager.launch">
+		<arg name="current_waypoint_topic" value="$(arg current_waypoint_topic)"/>
+
+		<arg name="global_origin_topic" value="$(arg global_origin_topic)"/>
+
+		<arg name="clear_markers_service" value="/clear_markers"/>
+		<arg name="plan_home_marker_service" value="$(arg plan_home_marker_service)"/>
+
+		<arg name="add_marker_service" value="/add_marker"/>
+		<arg name="reorder_marker_service" value="/reorder_marker"/>
+		<arg name="reorder_markers_service" value="/reorder_markers"/>
+		<arg name="edit_marker_service" value="/edit_marker"/>
+		<arg name="remove_marker_service" value="/remove_marker"/>
+		<arg name="insert_marker_service" value="/insert_marker"/>
+
+		<arg name="marker_list_topic" value="$(arg marker_list_topic)"/>
+		<arg name="current_marker_topic" value="$(arg current_marker_topic)"/>
+		<arg name="publish_current_marker_service" value="$(arg publish_current_marker_service)"/>
+		<arg name="remove_current_marker_service" value="$(arg remove_current_marker_service)"/>
+	</include>
+
+	<!-- launch the state machine -->
+	<include file="$(find wanderer_statemachine)/launch/state_machine.launch">
+		<arg name="planner_status_topic" value="$(arg planner_status_topic)"/>
+		<arg name="planner_enabled_service" value="$(arg planner_enabled_service)"/>
+		<arg name="planner_precision_service" value="$(arg planner_precision_service)"/>
+		<arg name="gnss_only_precision" value="$(arg gnss_only_precision)"/>
+		<arg name="marker_precision" value="$(arg marker_precision)"/>
+		<arg name="gate_precision" value="$(arg gate_precision)"/>
+
+		<arg name="current_waypoint_topic" value="$(arg current_waypoint_topic)"/>
+
+		<arg name="current_marker_topic" value="$(arg current_marker_topic)"/>
+		<arg name="marker_list_topic" value="$(arg marker_list_topic)"/>
+		<arg name="publish_current_marker_service" value="$(arg publish_current_marker_service)"/>
+		<arg name="plan_home_marker_service" value="$(arg plan_home_marker_service)"/>
+		<arg name="remove_current_marker_service" value="$(arg remove_current_marker_service)"/>
+
+		<arg name="found_marker_list_topic" value="$(arg found_marker_list_topic)"/>
+
+		<arg name="publish_search_waypoint_service" value="$(arg publish_search_waypoint_service)"/>
+		
+		<arg name="through_next_gate_waypoint_service" value="$(arg through_next_gate_waypoint_service)"/>
+		<arg name="through_update_gate_waypoint_service" value="$(arg through_update_gate_waypoint_service)"/>
+		<arg name="circle_next_gate_waypoint_service" value="$(arg circle_next_gate_waypoint_service)"/>
+		<arg name="circle_update_gate_waypoint_service" value="$(arg circle_update_gate_waypoint_service)"/>
+
+		<arg name="teleop_enabled_service" value="/teleop_enabled"/>
+		<arg name="selected_mode_topic" value="/selected_mode"/>
+
+		<arg name="state_topic" value="/state"/>
+		<arg name="led_topic" value="/led_control"/>
+		<arg name="frequency" value="10"/>
+		<arg name="wait_at_marker_duration" value="-1"/>
+	</include>
+
+	<!-- launch the led driver arduino rosserial node -->
+	<include file="$(find wanderer_missions)/launch/components/led_driver_arduino.launch"/>
+
+	<!-- launch aruco_detect for all the wanderer cameras -->
+	<include file="$(find wanderer_missions)/launch/components/wanderer_aruco_camera_wizard.launch">
+		<arg name="found_marker_list_topic" value="$(arg found_marker_list_topic)"/>
+		<arg name="clear_found_markers_service" value="/clear_found_markers"/>
+	</include>
+</launch>

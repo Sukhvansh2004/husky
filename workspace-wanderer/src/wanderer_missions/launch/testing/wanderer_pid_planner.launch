@@ -1,0 +1,35 @@
+<launch>
+	<!-- drivebase and path planner args -->
+	<arg name="cmd_vel_topic" default="/cmd_vel"/>
+
+	<!-- pixhawk and path planner args-->
+	<arg name="local_position_topic" default="/current_pose"/>
+
+	<!-- launch wanderer's drivebase -->
+	<include file="$(find wanderer_drivebase_interfacing)/launch/drivebase.launch">
+		<arg name="cmd_vel_topic" value="$(arg cmd_vel_topic)"/>
+		<arg name="min_linear_speed" value="-2"/>
+		<arg name="max_linear_speed" value="2"/>
+		<arg name="min_angular_speed" value="-2"/>
+		<arg name="max_angular_speed" value="2"/>
+	</include>
+
+	<!-- launch the pixhawk localization -->
+	<include file="$(find pixhawk_localization)/launch/pixhawk.launch">
+		<arg name="device_path" value="/dev/urc/mtc/pixhawk"/>
+		<arg name="local_position_topic" value="$(arg local_position_topic)"/>
+	</include>
+
+	<!-- launch the pid path planner -->
+	<include file="$(find pid_path_planner)/launch/planner.launch">
+		<arg name="current_waypoint_topic" value="/current_waypoint"/>
+		<arg name="local_position_topic" value="$(arg local_position_topic)"/>
+		<arg name="cmd_vel_topic" value="$(arg cmd_vel_topic)"/>
+		<arg name="current_status_topic" value="/planner_status"/>
+		<arg name="enabled_service" value="/planner_enabled"/>
+		<arg name="min_linear_speed" value="0"/>
+		<arg name="max_linear_speed" value="1"/>
+		<arg name="min_angular_speed" value="-1"/>
+		<arg name="max_angular_speed" value="1"/>
+	</include>
+</launch>

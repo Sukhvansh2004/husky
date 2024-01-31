@@ -1,0 +1,27 @@
+<launch>
+
+	<!-- launch wanderer's drivebase -->
+	<include file="$(find wanderer_drivebase_interfacing)/launch/drivebase.launch">
+		<arg name="cmd_vel_topic" value="/cmd_vel"/>
+		<arg name="min_linear_speed" value="-2"/>
+		<arg name="max_linear_speed" value="2"/>
+		<arg name="min_angular_speed" value="-2"/>
+		<arg name="max_angular_speed" value="2"/>
+	</include>
+
+	<!-- Launch the can master -->
+	<include file="$(find can_master)/launch/can_master.launch"/>
+
+	<!-- launch the science payload -->
+	<include file="$(find science_servo_control)/launch/sci_servos.launch"/>
+
+	<!-- launch the spectrometer -->
+	<include file="$(find ocean_optics_spectrometer)/launch/spectrometer.launch">
+		<arg name="spectrometer_service" value="/spectrometer"/>
+		<arg name="device_sn" value="S14413"/>
+	</include>
+
+	<!-- launch the cameras -->
+	<include file="$(find theora_webcams)/launch/cameras.launch"/>
+
+</launch>

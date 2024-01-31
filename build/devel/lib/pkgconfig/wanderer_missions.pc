@@ -1,0 +1,8 @@
+prefix=/home/sukhvansh/Husky/src/build/devel
+
+Name: wanderer_missions
+Description: Description of wanderer_missions
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

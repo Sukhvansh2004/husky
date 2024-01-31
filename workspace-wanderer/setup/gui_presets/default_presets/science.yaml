@@ -1,0 +1,55 @@
+fisheye:
+  alias: fisheye
+  flip: false
+  fps: 15/1
+  height: 360
+  theora_webcam: true
+  widget_no: 2
+  width: 640
+logitech_05:
+  alias: Back
+  flip: true
+  fps: 10/1
+  height: 180
+  theora_webcam: true
+  widget_no: 3
+  width: 320
+logitech_10:
+  alias: fum_unda
+  flip: true
+  fps: 10/1
+  height: 180
+  theora_webcam: true
+  widget_no: 16
+  width: 320
+logitech_17:
+  alias: Stright Down
+  flip: false
+  fps: 10/1
+  height: 180
+  theora_webcam: true
+  widget_no: 15
+  width: 320
+logitech_19:
+  alias: front
+  flip: false
+  fps: 10/1
+  height: 180
+  theora_webcam: true
+  widget_no: 5
+  width: 320
+logitech_21:
+  alias: Rock Cam
+  flip: false
+  fps: 10/1
+  height: 180
+  theora_webcam: true
+  widget_no: 1
+  width: 320
+microcam_01:
+  alias: microcam_01
+  flip: false
+  fps: 30/1
+  height: 480
+  theora_webcam: true
+  width: 640

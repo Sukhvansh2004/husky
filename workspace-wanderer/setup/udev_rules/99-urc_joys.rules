@@ -1,0 +1,30 @@
+##URC UDEV rules
+# Use these for static pathing to attached devices
+#####################################################################
+# Controllers
+#####################################################################
+#
+# if the THOR joystick is plugged in it appears as
+# 	/dev/urc/js/thor
+# 
+# if the MATEO joystick is plugged in it appears as 
+# 	/dev/urc/js/mateo
+#
+# if the ARES joystick is plugged in it appears as 
+# 	/dev/urc/js/ARES
+#
+# if the flightstick is plugged in it appears as
+# 	/dev/urc/js/flightstick
+#
+##################################################################### 	
+ACTION=="add", ATTRS{idProduct}=="0038", ATTRS{idVendor}=="045e", SUBSYSTEM=="input", KERNEL=="js[0-9]*", SYMLINK+="urc/js/flightstick"
+
+ACTION=="add", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c21f", SUBSYSTEM=="input", KERNEL=="js[0-9]*", ATTRS{serial}=="F59C922A", SYMLINK+="urc/js/thor", SYMLINK+="urc/js/gamepad"
+
+ACTION=="add", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c21f", SUBSYSTEM=="input", KERNEL=="js[0-9]*", ATTRS{serial}=="BFF59E32", SYMLINK+="urc/js/mateo", SYMLINK+="urc/js/gamepad"
+
+ACTION=="add", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c21f", SUBSYSTEM=="input", KERNEL=="js[0-9]*", ATTRS{serial}=="C42990C5", SYMLINK+="urc/js/ares", SYMLINK+="urc/js/gamepad"
+
+ACTION=="add", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c21f",  SUBSYSTEM=="input", KERNEL=="js[0-9]*", ATTRS{serial}=="01349D24", SYMLINK+="urc/js/astro", SYMLINK+="urc/js/gamepad"
+
+ACTION=="add", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="028e",  SUBSYSTEM=="input", KERNEL=="js[0-9]*", ATTRS{serial}=="03741CD", SYMLINK+="urc/js/xbox", SYMLINK+="urc/js/gamepad"

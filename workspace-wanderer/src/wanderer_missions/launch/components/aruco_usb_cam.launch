@@ -1,0 +1,36 @@
+<launch>
+	<!-- usb_cam and aruco args -->
+	<arg name="camera_name" default="camera"/>
+
+	<!-- aruco args -->
+	<arg name="tf_args" default="0 0 0 0 0 0"/> <!-- x y z yaw pitch roll -->
+	<arg name="tf_parent" default="base_link"/>
+	<arg name="fiducial_len" default="0.014"/>
+	<arg name="camera_compressed_topic" default="$(arg camera_name)/image_raw/compressed"/>
+	<arg name="camera_info_topic" default="$(arg camera_name)/camera_info"/>
+
+	<!-- launch the usb cam to get video feed -->
+	<node name="$(arg camera_name)" pkg="usb_cam" type="usb_cam_node"
+		output="screen" respawn="false" ns="cameras">
+		<param name="video_device" value="/dev/urc/cam/$(arg camera_name)"/>
+		<param name="image_width" value="1920"/>
+		<param name="image_height" value="1080"/>
+		<param name="framerate" value="5"/>
+		<param name="pixel_format" value="yuyv"/>
+		<param name="camera_frame_id" value="$(arg camera_name)"/>
+		<param name="camera_name" value="$(arg camera_name)"/>
+		<param name="io_method" value="mmap"/>
+	</node>
+
+	<!-- launch the aruco stuff -->
+	<include file="$(find wanderer_missions)/launch/components/aruco.launch">
+		<arg name="namespace" value="cameras/$(arg camera_name)"/>
+		<arg name="tf_args" value="$(arg tf_args)"/>
+		<arg name="tf_parent" value="$(arg tf_parent)"/>
+		<arg name="tf_child" value="$(arg camera_name)"/>
+		<arg name="fiducial_len" value="$(arg fiducial_len)"/>
+		<arg name="camera_compressed_topic" value="$(arg camera_compressed_topic)"/>
+		<arg name="camera_info_topic" value="$(arg camera_info_topic)"/>
+	</include>
+
+</launch>

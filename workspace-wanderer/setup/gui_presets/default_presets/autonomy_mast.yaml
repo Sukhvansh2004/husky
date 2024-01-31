@@ -1,0 +1,58 @@
+logitech_04:
+  alias: mast
+  flip: false
+  fps: 10/1
+  height: 180
+  theora_webcam: true
+  widget_no: 8
+  width: 320
+logitech_05:
+  alias: back
+  flip: true
+  fps: 5/1
+  height: 1080
+  theora_webcam: true
+  width: 1920
+logitech_06:
+  alias: logitech_06
+  flip: false
+  fps: 0/1
+  height: 0
+  theora_webcam: true
+  width: 0
+logitech_10:
+  alias: fum_unda
+  flip: true
+  fps: 10/1
+  height: 180
+  theora_webcam: true
+  widget_no: 7
+  width: 320
+logitech_11:
+  alias: right
+  flip: false
+  fps: 5/1
+  height: 1080
+  theora_webcam: true
+  width: 1920
+logitech_19:
+  alias: front
+  flip: false
+  fps: 5/1
+  height: 1080
+  theora_webcam: true
+  width: 1920
+logitech_20:
+  alias: left
+  flip: false
+  fps: 5/1
+  height: 1080
+  theora_webcam: true
+  width: 1920
+micro_cam:
+  alias: micro_cam
+  flip: false
+  fps: 0/1
+  height: 0
+  theora_webcam: true
+  width: 0

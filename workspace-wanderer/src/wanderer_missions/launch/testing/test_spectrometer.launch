@@ -1,0 +1,16 @@
+<launch>
+	<!-- launch the gui -->
+	<include file="$(find wanderer_gui)/launch/base.launch">
+		<arg name="local_position_topic" value="/current_pose"/>
+		<arg name="global_position_topic" value="/current_global_pose"/>
+		<arg name="global_origin_topic" value="/global_origin"/>
+		<arg name="drive_forward_service" value="/drive_forward"/>
+		<arg name="car_style_turning_service" value="/car_style_turning"/>
+	</include>
+
+	<!-- launch the spectrometer -->
+	<include file="$(find ocean_optics_spectrometer)/launch/spectrometer.launch">
+		<arg name="spectrometer_service" default="/spectrometer"/>
+		<arg name="device_sn" default="S14413"/>
+	</include>
+</launch>

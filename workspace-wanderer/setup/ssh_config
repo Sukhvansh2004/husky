@@ -1,0 +1,12 @@
+Host astro
+	HostName 192.168.1.69
+	User astro
+	HostKeyAlias astro
+	CheckHostIP no
+
+Host wanderer
+	Hostname 192.168.1.69
+	User wanderer
+	HostKeyAlias wanderer
+	CheckHostIP no
+

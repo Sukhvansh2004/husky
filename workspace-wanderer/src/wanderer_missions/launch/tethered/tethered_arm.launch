@@ -1,0 +1,16 @@
+<launch>
+
+    <!-- launch arm control -->
+	<include file="$(find hockey_stick_arm)/launch/arm_control.launch">
+		<arg name="joy_dev" value="/dev/urc/js/gamepad"/>
+	</include>
+
+    <!-- Launch the can master -->
+    <include file="$(find can_master)/launch/can_master.launch"/>
+
+	<!-- launch wanderer's arm -->
+	<include file="$(find hockey_stick_arm)/launch/full_arm.launch">
+		<arg name="joy_topic" value="/arm/joy"/>
+	</include>
+
+</launch>

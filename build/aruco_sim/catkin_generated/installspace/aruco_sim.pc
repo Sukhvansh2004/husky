@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: aruco_sim
+Description: Description of aruco_sim
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
