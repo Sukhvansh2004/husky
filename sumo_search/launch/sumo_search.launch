@@ -1,0 +1,14 @@
+<launch>
+
+	<!-- sumo search args -->
+	<arg name="current_marker_topic" default="/current_marker"/>
+	<arg name="current_waypoint_topic" default="/current_waypoint"/>
+	<arg name="publish_search_waypoint_service" default="/publish_search_waypoint"/>
+
+	<node pkg="sumo_search" name="sumo_search"
+	type="sumo_search.py" output="screen" respawn="false">
+		<param name="current_marker_topic" value="$(arg current_marker_topic)"/>
+		<param name="current_waypoint_topic" value="$(arg current_waypoint_topic)"/>
+		<param name="publish_search_waypoint_service" value="$(arg publish_search_waypoint_service)"/>
+	</node>
+</launch>
