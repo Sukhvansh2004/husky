@@ -21,7 +21,7 @@ obstacles_laser:
     laser: {data_type: LaserScan, clearing: true, marking: true, topic: front/scan, inf_is_valid: true}
 
 inflation:
-    inflation_radius: 1.0
+    inflation_radius: 0.5
 
 rgbd_obstacle_layer:
     plugin: "spatio_temporal_voxel_layer/SpatioTemporalVoxelLayer"

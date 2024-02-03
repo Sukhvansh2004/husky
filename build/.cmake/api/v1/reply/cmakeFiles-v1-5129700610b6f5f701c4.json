@@ -2370,6 +2370,13 @@
 			"path" : "/opt/ros/noetic/share/catkin/cmake/templates/script.py.in"
 		},
 		{
+			"path" : "marker-detection/scripts/spiral_search.py"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/ros/noetic/share/catkin/cmake/templates/script.py.in"
+		},
+		{
 			"path" : "workspace-wanderer/src/wanderer_missions/CMakeLists.txt"
 		},
 		{

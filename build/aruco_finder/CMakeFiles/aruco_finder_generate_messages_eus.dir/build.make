@@ -66,8 +66,8 @@ devel/share/roseus/ros/aruco_finder/msg/FoundMarker.l: /opt/ros/noetic/share/geo
 
 devel/share/roseus/ros/aruco_finder/msg/FoundMarkerList.l: /opt/ros/noetic/lib/geneus/gen_eus.py
 devel/share/roseus/ros/aruco_finder/msg/FoundMarkerList.l: ../aruco_finder/msg/FoundMarkerList.msg
-devel/share/roseus/ros/aruco_finder/msg/FoundMarkerList.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 devel/share/roseus/ros/aruco_finder/msg/FoundMarkerList.l: ../aruco_finder/msg/FoundMarker.msg
+devel/share/roseus/ros/aruco_finder/msg/FoundMarkerList.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sukhvansh/Husky/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from aruco_finder/FoundMarkerList.msg"
 	cd /home/sukhvansh/Husky/src/build/aruco_finder && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/sukhvansh/Husky/src/aruco_finder/msg/FoundMarkerList.msg -Iaruco_finder:/home/sukhvansh/Husky/src/aruco_finder/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p aruco_finder -o /home/sukhvansh/Husky/src/build/devel/share/roseus/ros/aruco_finder/msg
 

@@ -65,8 +65,8 @@ devel/share/gennodejs/ros/aruco_finder/msg/FoundMarker.js: /opt/ros/noetic/share
 
 devel/share/gennodejs/ros/aruco_finder/msg/FoundMarkerList.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 devel/share/gennodejs/ros/aruco_finder/msg/FoundMarkerList.js: ../aruco_finder/msg/FoundMarkerList.msg
-devel/share/gennodejs/ros/aruco_finder/msg/FoundMarkerList.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 devel/share/gennodejs/ros/aruco_finder/msg/FoundMarkerList.js: ../aruco_finder/msg/FoundMarker.msg
+devel/share/gennodejs/ros/aruco_finder/msg/FoundMarkerList.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sukhvansh/Husky/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from aruco_finder/FoundMarkerList.msg"
 	cd /home/sukhvansh/Husky/src/build/aruco_finder && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/sukhvansh/Husky/src/aruco_finder/msg/FoundMarkerList.msg -Iaruco_finder:/home/sukhvansh/Husky/src/aruco_finder/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p aruco_finder -o /home/sukhvansh/Husky/src/build/devel/share/gennodejs/ros/aruco_finder/msg
 

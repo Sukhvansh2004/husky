@@ -11,7 +11,7 @@
 	<arg name="robot_name" default="aruco_sim"/>
 	<arg name="node_name" default="urdf_spawner"/>
 	<arg name="model_name" default="arucoMarker0"/>
-	<arg name="file_name" default="/home/sukhvansh/Husky/src/aruco_sim/meshes/arucoMarker0.dae"/>
+	<arg name="file_name" default="arucoMarker0.dae"/>
 	
 	<include file="$(find aruco_sim)/launch/robot_description.launch">
 		<arg name="model_file" value="$(arg file_name)"/>

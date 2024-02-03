@@ -21,7 +21,7 @@ class image_converter:
   
   def __init__(self):
     self.image_pub = rospy.Publisher("between_image",Image,queue_size=10)
-    self.between_pub = rospy.Publisher("output_point",PoseStamped,queue_size=10)
+    self.between_pub = rospy.Publisher("/move_base_simple/goal",PoseStamped,queue_size=1)
     self.bridge = CvBridge()
     self.calibrate_camera = rospy.Subscriber("/realsense/color/camera_info",CameraInfo,self.callbackCalibrate)
     self.image_sub = rospy.Subscriber("/realsense/color/image_raw",Image,self.callback)
@@ -66,7 +66,7 @@ class image_converter:
     if len(corners) > 0:
         for i in range(0, len(ids)):
 
-          rvec, tvec= cv2.aruco.estimatePoseSingleMarkers(corners[i], 0.2, matrix_coefficients,
+          rvec, tvec, _= cv2.aruco.estimatePoseSingleMarkers(corners[i], 0.2, matrix_coefficients,
                                                                        distortion_coefficients)
 
 
@@ -95,7 +95,7 @@ class image_converter:
             orientationW = quaternion[3] + orientationW
 
 
-   #       cv2.imshow("Image window", cv_image)
+          # cv2.imshow("Image window", cv_image)
 
     if mode == "G":
       self.publishGatePose(corners, positionX,positionY,positionZ,orientationX,orientationY,orientationZ,orientationW)
@@ -126,13 +126,13 @@ class image_converter:
   def publishPostPose(self,pX, pY,pZ, oX,oY,oZ, oW):
     global postPose
     postPose = PoseStamped()
-    postPose.header.frame_id = "output_p"
+    postPose.header.frame_id = "base_link"
     postPose.pose.position.x = pZ 
     postPose.pose.position.y = pX 
-    postPose.pose.position.z = pY
+    postPose.pose.position.z = 0
 
-    postPose.pose.orientation.x = oX 
-    postPose.pose.orientation.y = oY
+    postPose.pose.orientation.x = 0
+    postPose.pose.orientation.y = 0
     postPose.pose.orientation.z = oZ
     postPose.pose.orientation.w = oW 
             

@@ -56,3 +56,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/marker_detect" TYPE PROGRAM FILES "/home/sukhvansh/Husky/src/build/marker-detection/catkin_generated/installspace/find_between.py")
 endif()
 
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/marker_detect" TYPE PROGRAM FILES "/home/sukhvansh/Husky/src/build/marker-detection/catkin_generated/installspace/spiral_search.py")
+endif()
+

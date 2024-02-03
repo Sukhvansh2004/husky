@@ -63,6 +63,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../marker-detection/CMakeLists.txt"
   "../marker-detection/package.xml"
   "../marker-detection/scripts/find_between.py"
+  "../marker-detection/scripts/spiral_search.py"
   "../sumo_search/CMakeLists.txt"
   "../sumo_search/package.xml"
   "../workspace-wanderer/src/wanderer_missions/CMakeLists.txt"
