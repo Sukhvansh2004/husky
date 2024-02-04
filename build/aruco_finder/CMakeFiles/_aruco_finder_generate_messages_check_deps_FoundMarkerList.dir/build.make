@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/sukhvansh/Husky/src/build
 include aruco_finder/CMakeFiles/_aruco_finder_generate_messages_check_deps_FoundMarkerList.dir/progress.make
 
 aruco_finder/CMakeFiles/_aruco_finder_generate_messages_check_deps_FoundMarkerList:
-	cd /home/sukhvansh/Husky/src/build/aruco_finder && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py aruco_finder /home/sukhvansh/Husky/src/aruco_finder/msg/FoundMarkerList.msg aruco_finder/FoundMarker:geometry_msgs/Point
+	cd /home/sukhvansh/Husky/src/build/aruco_finder && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py aruco_finder /home/sukhvansh/Husky/src/aruco_finder/msg/FoundMarkerList.msg geometry_msgs/Point:aruco_finder/FoundMarker
 
 _aruco_finder_generate_messages_check_deps_FoundMarkerList: aruco_finder/CMakeFiles/_aruco_finder_generate_messages_check_deps_FoundMarkerList
 _aruco_finder_generate_messages_check_deps_FoundMarkerList: aruco_finder/CMakeFiles/_aruco_finder_generate_messages_check_deps_FoundMarkerList.dir/build.make

@@ -65,8 +65,8 @@ devel/share/common-lisp/ros/aruco_finder/msg/FoundMarker.lisp: /opt/ros/noetic/s
 
 devel/share/common-lisp/ros/aruco_finder/msg/FoundMarkerList.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
 devel/share/common-lisp/ros/aruco_finder/msg/FoundMarkerList.lisp: ../aruco_finder/msg/FoundMarkerList.msg
-devel/share/common-lisp/ros/aruco_finder/msg/FoundMarkerList.lisp: ../aruco_finder/msg/FoundMarker.msg
 devel/share/common-lisp/ros/aruco_finder/msg/FoundMarkerList.lisp: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+devel/share/common-lisp/ros/aruco_finder/msg/FoundMarkerList.lisp: ../aruco_finder/msg/FoundMarker.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sukhvansh/Husky/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Lisp code from aruco_finder/FoundMarkerList.msg"
 	cd /home/sukhvansh/Husky/src/build/aruco_finder && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/sukhvansh/Husky/src/aruco_finder/msg/FoundMarkerList.msg -Iaruco_finder:/home/sukhvansh/Husky/src/aruco_finder/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p aruco_finder -o /home/sukhvansh/Husky/src/build/devel/share/common-lisp/ros/aruco_finder/msg
 

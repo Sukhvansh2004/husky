@@ -24,7 +24,7 @@ add_custom_target(_aruco_finder_generate_messages_check_deps_${_filename}
 
 get_filename_component(_filename "/home/sukhvansh/Husky/src/aruco_finder/msg/FoundMarkerList.msg" NAME_WE)
 add_custom_target(_aruco_finder_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "aruco_finder" "/home/sukhvansh/Husky/src/aruco_finder/msg/FoundMarkerList.msg" "aruco_finder/FoundMarker:geometry_msgs/Point"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "aruco_finder" "/home/sukhvansh/Husky/src/aruco_finder/msg/FoundMarkerList.msg" "geometry_msgs/Point:aruco_finder/FoundMarker"
 )
 
 #
@@ -42,7 +42,7 @@ _generate_msg_cpp(aruco_finder
 _generate_msg_cpp(aruco_finder
   "/home/sukhvansh/Husky/src/aruco_finder/msg/FoundMarkerList.msg"
   "${MSG_I_FLAGS}"
-  "/home/sukhvansh/Husky/src/aruco_finder/msg/FoundMarker.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/home/sukhvansh/Husky/src/aruco_finder/msg/FoundMarker.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/aruco_finder
 )
 
@@ -83,7 +83,7 @@ _generate_msg_eus(aruco_finder
 _generate_msg_eus(aruco_finder
   "/home/sukhvansh/Husky/src/aruco_finder/msg/FoundMarkerList.msg"
   "${MSG_I_FLAGS}"
-  "/home/sukhvansh/Husky/src/aruco_finder/msg/FoundMarker.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/home/sukhvansh/Husky/src/aruco_finder/msg/FoundMarker.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/aruco_finder
 )
 
@@ -124,7 +124,7 @@ _generate_msg_lisp(aruco_finder
 _generate_msg_lisp(aruco_finder
   "/home/sukhvansh/Husky/src/aruco_finder/msg/FoundMarkerList.msg"
   "${MSG_I_FLAGS}"
-  "/home/sukhvansh/Husky/src/aruco_finder/msg/FoundMarker.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/home/sukhvansh/Husky/src/aruco_finder/msg/FoundMarker.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/aruco_finder
 )
 
@@ -165,7 +165,7 @@ _generate_msg_nodejs(aruco_finder
 _generate_msg_nodejs(aruco_finder
   "/home/sukhvansh/Husky/src/aruco_finder/msg/FoundMarkerList.msg"
   "${MSG_I_FLAGS}"
-  "/home/sukhvansh/Husky/src/aruco_finder/msg/FoundMarker.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/home/sukhvansh/Husky/src/aruco_finder/msg/FoundMarker.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/aruco_finder
 )
 
@@ -206,7 +206,7 @@ _generate_msg_py(aruco_finder
 _generate_msg_py(aruco_finder
   "/home/sukhvansh/Husky/src/aruco_finder/msg/FoundMarkerList.msg"
   "${MSG_I_FLAGS}"
-  "/home/sukhvansh/Husky/src/aruco_finder/msg/FoundMarker.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/home/sukhvansh/Husky/src/aruco_finder/msg/FoundMarker.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/aruco_finder
 )
 
