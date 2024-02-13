@@ -1,8 +1,0 @@
-prefix=/home/sukhvansh/Husky/src/build/devel
-
-Name: sumo_search
-Description: Description of sumo_search
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

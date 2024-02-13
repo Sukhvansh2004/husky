@@ -1,8 +1,0 @@
-prefix=/home/sukhvansh/Husky/src/build/devel
-
-Name: husky_msgs
-Description: Description of husky_msgs
-Version: 0.6.9
-Cflags: -I/home/sukhvansh/Husky/src/build/devel/include
-Libs: -L${prefix}/lib 
-Requires: std_msgs message_runtime

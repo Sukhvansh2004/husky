@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+    <include>
+      <uri>model://heightmap</uri>
+    </include>
+    <include>
+      <uri>model://scout</uri>
+    </include>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <scene>
+      <sky>
+        <clouds>
+          <speed>100</speed>
+          <mean_size>0.000001</mean_size>
+        </clouds>
+      </sky>
+    </scene>
+    <plugin name="hello_world" filename="libhello_world.so" />
+  </world>
+</sdf>

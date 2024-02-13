@@ -1,8 +1,0 @@
-prefix=/home/sukhvansh/Husky/src/build/devel
-
-Name: marker_detect
-Description: Description of marker_detect
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

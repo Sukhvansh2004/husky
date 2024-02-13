@@ -1,8 +1,0 @@
-prefix=/home/sukhvansh/Husky/src/build/devel
-
-Name: husky_control
-Description: Description of husky_control
-Version: 0.6.9
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

@@ -1,8 +1,0 @@
-prefix=/home/sukhvansh/Husky/src/build/devel
-
-Name: husky_viz
-Description: Description of husky_viz
-Version: 0.6.9
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
