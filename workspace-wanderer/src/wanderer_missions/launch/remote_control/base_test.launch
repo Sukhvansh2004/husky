@@ -1,4 +1,0 @@
-<launch>
-	<!-- redirect to base_gui_gamepad -->
-	<include file="$(find wanderer_missions)/launch/remote_control/base_gui_gamepad.launch"/>
-</launch>

@@ -7,7 +7,7 @@ import cv2
 import tf
 from geometry_msgs.msg import PoseStamped
 import numpy as np
-from std_msgs.msg import String
+from std_msgs.msg import Bool
 from sensor_msgs.msg import Image, CameraInfo
 from cv_bridge import CvBridge, CvBridgeError
 
@@ -20,11 +20,12 @@ mode = "P"
 class image_converter:
   
   def __init__(self):
-    self.image_pub = rospy.Publisher("between_image",Image,queue_size=10)
-    self.between_pub = rospy.Publisher("/move_base_simple/goal",PoseStamped,queue_size=1)
-    self.bridge = CvBridge()
+    self.image_pub        = rospy.Publisher("between_image",Image,queue_size=10)
+    self.AR               = rospy.Publisher("AR",Bool,queue_size=1)
+    self.between_pub      = rospy.Publisher("/move_base_simple/goal",PoseStamped,queue_size=1)
+    self.bridge           = CvBridge()
     self.calibrate_camera = rospy.Subscriber("/realsense/color/camera_info",CameraInfo,self.callbackCalibrate)
-    self.image_sub = rospy.Subscriber("/realsense/color/image_raw",Image,self.callback)
+    self.image_sub        = rospy.Subscriber("/realsense/color/image_raw",Image,self.callback)
     
 
   def callback(self,data):
@@ -80,6 +81,8 @@ class image_converter:
           rotation_matrix[:3, :3], _ = cv2.Rodrigues(rvec)
 
           quaternion = tf.transformations.quaternion_from_matrix(rotation_matrix)
+          
+          self.AR.publish(True)
 
           if mode == "P":  
             self.publishPostPose(tvec[0][0][0],tvec[0][0][1],tvec[0][0][2],quaternion[0],quaternion[1],quaternion[2],quaternion[3])
@@ -142,7 +145,7 @@ class image_converter:
     if len(corners) > 1:
       global betweenPose
       betweenPose = PoseStamped()
-      betweenPose.header.frame_id = "between_point"
+      betweenPose.header.frame_id = "base_link"
       betweenPose.pose.position.x = pZ / 2
       betweenPose.pose.position.y = pX / 2
       betweenPose.pose.position.z = pY / 2
