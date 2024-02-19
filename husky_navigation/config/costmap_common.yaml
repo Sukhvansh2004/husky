@@ -28,7 +28,7 @@ rgbd_obstacle_layer:
     enabled:                  true
     voxel_decay:              15.0  # seconds if linear, e^n if exponential
     decay_model:              0     # 0=linear, 1=exponential, -1=persistent
-    voxel_size:               0.05  # meters
+    voxel_size:               0.1  # meters
     track_unknown_space:      true  # default space is known
     mark_threshold:           0     # voxel height
     update_footprint_enabled: true

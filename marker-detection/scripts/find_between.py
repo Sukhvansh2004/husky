@@ -82,7 +82,6 @@ class image_converter:
 
           quaternion = tf.transformations.quaternion_from_matrix(rotation_matrix)
           
-          self.AR.publish(True)
 
           if mode == "P":  
             self.publishPostPose(tvec[0][0][0],tvec[0][0][1],tvec[0][0][2],quaternion[0],quaternion[1],quaternion[2],quaternion[3])
@@ -129,7 +128,7 @@ class image_converter:
   def publishPostPose(self,pX, pY,pZ, oX,oY,oZ, oW):
     global postPose
     postPose = PoseStamped()
-    postPose.header.frame_id = "base_link"
+    postPose.header.frame_id = "camera_realsense_link"
     postPose.pose.position.x = pZ 
     postPose.pose.position.y = pX 
     postPose.pose.position.z = 0
@@ -139,22 +138,26 @@ class image_converter:
     postPose.pose.orientation.z = oZ
     postPose.pose.orientation.w = oW 
             
-    self.between_pub.publish(postPose)      
+    self.between_pub.publish(postPose)
+    self.AR.publish(True)     
+    # rospy.sleep(20) 
 
   def publishGatePose(self,corners, pX, pY,pZ, oX,oY,oZ, oW):
     if len(corners) > 1:
       global betweenPose
       betweenPose = PoseStamped()
-      betweenPose.header.frame_id = "base_link"
+      betweenPose.header.frame_id = "camera_realsense_link"
       betweenPose.pose.position.x = pZ / 2
       betweenPose.pose.position.y = pX / 2
-      betweenPose.pose.position.z = pY / 2
+      betweenPose.pose.position.z = 0
 
-      betweenPose.pose.orientation.x = oX / 2
-      betweenPose.pose.orientation.y = oY / 2
+      betweenPose.pose.orientation.x = 0
+      betweenPose.pose.orientation.y = 0
       betweenPose.pose.orientation.z = oZ / 2
       betweenPose.pose.orientation.w = oW / 2
       self.between_pub.publish(betweenPose)
+      self.AR.publish(True)
+      # rospy.sleep(20)
 
   def drawMarker(self, corners, ids, cv_image):
     if len(corners) > 0:
