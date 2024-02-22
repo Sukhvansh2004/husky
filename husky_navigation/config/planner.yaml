@@ -1,5 +1,5 @@
 controller_frequency: 5.0
-recovery_behavior_enabled: false
+recovery_behavior_enabled: true
 
 NavfnROS:
   allow_unknown: true # Specifies whether or not to allow navfn to create plans that traverse unknown space.

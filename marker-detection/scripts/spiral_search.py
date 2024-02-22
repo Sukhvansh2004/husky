@@ -73,7 +73,9 @@ class SpiralWaypointGenerator:
                     goal_msg.pose.position.y += self.initial_pose.y
                     goal_msg.header.stamp = rospy.Time.now()
                     self.goal_publisher.publish(goal_msg)
-
+        else:
+            print("Spiral Search Finished")
+            
     def run(self):
         rospy.spin()
 
