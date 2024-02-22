@@ -37,7 +37,6 @@
   <exec_depend>tf</exec_depend>
   <exec_depend>visualization_msgs</exec_depend>
   <exec_depend>nav_msgs</exec_depend>
-  <exec_depend>math</exec_depend>
   <exec_depend>tf2_ros</exec_depend>
   <exec_depend>tf2_geometry_msgs</exec_depend>
 
