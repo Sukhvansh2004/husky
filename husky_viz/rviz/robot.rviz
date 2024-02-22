@@ -6,9 +6,7 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /Sensing1
         - /Sensing1/PointCloud21
-        - /Navigation1
         - /Navigation1/Exploration1
       Splitter Ratio: 0.49492400884628296
     Tree Height: 611
@@ -155,12 +153,54 @@ Visualization Manager:
       Value: true
       Visual Enabled: true
     - Class: rviz/TF
-      Enabled: false
+      Enabled: true
       Filter (blacklist): ""
       Filter (whitelist): ""
       Frame Timeout: 15
       Frames:
-        All Enabled: true
+        All Enabled: false
+        base_footprint:
+          Value: false
+        base_link:
+          Value: true
+        camera_realsense_bottom_screw_frame:
+          Value: false
+        camera_realsense_link:
+          Value: false
+        camera_realsense_link_gazebo:
+          Value: false
+        front_bumper_link:
+          Value: false
+        front_left_wheel_link:
+          Value: false
+        front_right_wheel_link:
+          Value: false
+        imu_link:
+          Value: false
+        inertial_link:
+          Value: false
+        map:
+          Value: true
+        odom:
+          Value: true
+        rear_bumper_link:
+          Value: false
+        rear_left_wheel_link:
+          Value: false
+        rear_right_wheel_link:
+          Value: false
+        top_chassis_link:
+          Value: false
+        top_plate_front_link:
+          Value: false
+        top_plate_link:
+          Value: false
+        top_plate_rear_link:
+          Value: false
+        user_rail_link:
+          Value: false
+        utm:
+          Value: true
       Marker Alpha: 1
       Marker Scale: 1
       Name: TF
@@ -168,9 +208,44 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        {}
+        map:
+          odom:
+            base_link:
+              base_footprint:
+                {}
+              front_bumper_link:
+                {}
+              front_left_wheel_link:
+                {}
+              front_right_wheel_link:
+                {}
+              imu_link:
+                {}
+              inertial_link:
+                {}
+              rear_bumper_link:
+                {}
+              rear_left_wheel_link:
+                {}
+              rear_right_wheel_link:
+                {}
+              top_chassis_link:
+                {}
+              top_plate_link:
+                camera_realsense_bottom_screw_frame:
+                  camera_realsense_link:
+                    camera_realsense_link_gazebo:
+                      {}
+                top_plate_front_link:
+                  {}
+                top_plate_rear_link:
+                  {}
+              user_rail_link:
+                {}
+          utm:
+            {}
       Update Interval: 0
-      Value: false
+      Value: true
     - Class: rviz/InteractiveMarkers
       Enable Transparency: true
       Enabled: true
@@ -465,5 +540,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1600
-  X: 17
-  Y: 32
+  X: -15
+  Y: 0
