@@ -1,29 +1,13 @@
 <launch>
 
-<!--
-    fix_translator translates to and from NatSatFix 
-    and GPSFix messages.
+    <node pkg="robot_localization" type="navsat_transform_node" name="navsat_tranform_waypoint">
+      <remap from="/gps/fix" to="/gps/input"/>
+      <remap from="/odometry/filtered" to="/odometry/filtered/global"/>
+      <remap from="/odometry/gps" to="gps_point"/>
+      <remap from="/gps/filtered" to="/waypoint/gps"/>
+      <!-- <rosparam command="load" file="$(find husky_control)/config/navsat_transform.yaml" /> -->
+    </node>
 
-    If you want to translate from NavSatFix to GPSFix,
-    you have to modify the first two remap lines.
-   
-    If you want to translate from GPSFix to NavSatFix,
-    you have to uncomment and modify the last two remap 
-    lines.
-
-    Only adjust topic names after "to=" in each remap line.
--->
-
-  <node name="fix_translator" pkg="gps_common" type="fix_translator">
-    <!-- Translate from NavSatFix to GPSFix //-->
-      <remap from="/navsat_fix_in"  to="/navsat/fix"/>       
-      <!-- <remap from="/gps_fix_out"    to="/gps_fix"/> -->
-
-    <!-- Translate from GPSFix to NavSatFix //-->
-     
-       <remap from="/gps_fix_in"     to="/gps/filtered"/>   
-       <!-- <remap from="/navsat_fix_out" to="/YOUR_NAVSATFIX_TOPIC"/>    -->
-     <!-- // -->
-  </node>
-
+    <node pkg="husky_navigation" type="gps_to_pose.py" name="gps_waypoint_converter"/>
+    
 </launch>

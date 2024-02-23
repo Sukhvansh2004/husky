@@ -1,0 +1,14 @@
+rostopic pub /gps/input sensor_msgs/NavSatFix "header:
+  seq: 0
+  stamp:
+    secs: 0
+    nsecs: 0
+  frame_id: 'odom'
+status:
+  status: 0
+  service: 0
+latitude: 49.9001
+longitude: 8.9001
+altitude: 0.0
+position_covariance: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+position_covariance_type: 0" -r 1
