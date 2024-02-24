@@ -6,6 +6,6 @@ plugins:
         - {name: rgbd_obstacle_layer,     type: "spatio_temporal_voxel_layer/SpatioTemporalVoxelLayer"}
         - {name: inflation,                 type: "costmap_2d::InflationLayer"}
 
-rgbd_obstacle_layer:
-        rgbd1_mark:
-                obstacle_range: 10.0
+# rgbd_obstacle_layer:
+#         rgbd1_mark:
+#                 obstacle_range: 10.0

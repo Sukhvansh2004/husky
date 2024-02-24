@@ -3,12 +3,12 @@ rostopic pub /gps/input sensor_msgs/NavSatFix "header:
   stamp:
     secs: 0
     nsecs: 0
-  frame_id: 'odom'
+  frame_id: 'map'
 status:
   status: 0
   service: 0
-latitude: 49.9001
-longitude: 8.9001
+latitude: 49.9000001088367
+longitude: 8.90001
 altitude: 0.0
 position_covariance: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-position_covariance_type: 0" -r 1
+position_covariance_type: 0" 

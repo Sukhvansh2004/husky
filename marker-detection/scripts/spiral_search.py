@@ -80,5 +80,6 @@ class SpiralWaypointGenerator:
         rospy.spin()
 
 if __name__ == '__main__':
+    print("Spiral Search Started")
     spiral_generator = SpiralWaypointGenerator()
     spiral_generator.run()
