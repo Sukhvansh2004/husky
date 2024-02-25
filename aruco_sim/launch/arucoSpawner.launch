@@ -2,12 +2,12 @@
 
 <launch>
 	<!-- Robot pose -->
-	<arg name="x" default="3"/>
-	<arg name="y" default="3"/>
+	<arg name="x" default="4"/>
+	<arg name="y" default="3.5"/>
 	<arg name="z" default="0"/>
 	<arg name="roll" default="0"/>
 	<arg name="pitch" default="0"/>
-	<arg name="yaw" default="0"/>
+	<arg name="yaw" default="1"/>
 	<arg name="robot_name" default="aruco_sim"/>
 	<arg name="node_name" default="urdf_spawner"/>
 	<arg name="model_name" default="arucoMarker0"/>

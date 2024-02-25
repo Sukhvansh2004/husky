@@ -26,7 +26,7 @@
   <run_depend>navfn</run_depend>
   <run_depend>base_local_planner</run_depend>
   <run_depend>dwa_local_planner</run_depend>
-  <run_depend>spation_temporal_voxel_layer</run_depend>
+  <run_depend>spatio_temporal_voxel_layer</run_depend>
 
   <export>
   </export>
