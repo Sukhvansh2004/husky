@@ -168,6 +168,7 @@ include_directories(
  catkin_install_python(PROGRAMS
    scripts/find_between.py
    scripts/spiral_search.py
+   scripts/object_detect.py
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
  )
 

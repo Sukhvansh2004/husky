@@ -26,7 +26,7 @@ inflation:
 rgbd_obstacle_layer:
     plugin: "spatio_temporal_voxel_layer/SpatioTemporalVoxelLayer"
     enabled:                  true
-    voxel_decay:              15.0  # seconds if linear, e^n if exponential
+    voxel_decay:              25.0  # seconds if linear, e^n if exponential
     decay_model:              0     # 0=linear, 1=exponential, -1=persistent
     voxel_size:               0.05  # meters
     track_unknown_space:      true  # default space is known
@@ -45,7 +45,7 @@ rgbd_obstacle_layer:
         marking: true
         clearing: false
         obstacle_range: 3.0          # meters
-        min_obstacle_height: 0.65     # default 0, meters
+        min_obstacle_height: 0.5     # default 0, meters
         max_obstacle_height: 2.0     # default 3, meters
         expected_update_rate: 0.0    # default 0, if not updating at this rate at least, remove from buffer
         observation_persistence: 0.0 # default 0, use all measurements taken during now-value, 0=latest

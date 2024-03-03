@@ -24,8 +24,8 @@ class image_converter:
     self.AR               = rospy.Publisher("AR",Bool,queue_size=1)
     self.between_pub      = rospy.Publisher("/move_base_simple/goal",PoseStamped,queue_size=1)
     self.bridge           = CvBridge()
-    self.calibrate_camera = rospy.Subscriber("/realsense/color/camera_info",CameraInfo,self.callbackCalibrate)
-    self.image_sub        = rospy.Subscriber("/realsense/color/image_raw",Image,self.callback)
+    self.calibrate_camera = rospy.Subscriber("/camera/color/camera_info",CameraInfo,self.callbackCalibrate)
+    self.image_sub        = rospy.Subscriber("/camera/color/image_raw",Image,self.callback)
     
 
   def callback(self,data):
